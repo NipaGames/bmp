@@ -6,7 +6,7 @@ OBJ_COUNT := $(words $(OBJ_FILES))
 EXECUTABLE_DIR = bin
 EXECUTABLE := bmp.exe
 LDLIBS :=
-LDFLAGS :=
+LDFLAGS := -static-libgcc -static-libstdc++ -Wl,-Bstatic -lstdc++ -lpthread -Wl,-Bdynamic
 INCLUDES := -Isrc
 CC := ccache g++
 CXXFLAGS := -std=c++17
