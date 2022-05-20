@@ -11,7 +11,6 @@ BMPImage::BMPImage(RGB24*** pixels, int w, int h) {
 
 void BMPImage::WriteImageToFile(const std::string& fileName) {
     uint32_t empty = 0x00000000;
-    // Iterate all pixels
     std::ofstream file(fileName, std::ios::out | std::ios::binary);
     // BitmapFileHeader
     file.write("BM", 2); // magic number
@@ -34,7 +33,7 @@ void BMPImage::WriteImageToFile(const std::string& fileName) {
     file.write((char*)&empty, 4); // number of colors in color palette
     file.write((char*)&empty, 4); // important colors
 
-    // 
+    // Iterate all pixels
     for (int i = 0; i < height_; i++) {
         for (int j = 0; j < width_; j++) {
             // Colors in BGR order
