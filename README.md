@@ -1,5 +1,6 @@
 # BMP
-A simple C++ program for creating BMP image files from 2D pixel arrays.
+A simple C++ program for creating BMP image files from 2D pixel arrays.\
+You can find the executable from ``bin/``.
 
 ## Compiling
 **Use run.bat to compile.**\
