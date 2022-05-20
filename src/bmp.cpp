@@ -10,7 +10,7 @@ BMPImage::BMPImage(RGB24*** pixels, int w, int h) {
 }
 
 void BMPImage::WriteImageToFile(const std::string& fileName) {
-    uint64_t empty = 0x00000000;
+    uint32_t empty = 0x00000000;
     // Iterate all pixels
     std::ofstream file(fileName, std::ios::out | std::ios::binary);
     // BitmapFileHeader
@@ -23,7 +23,7 @@ void BMPImage::WriteImageToFile(const std::string& fileName) {
     file.write((char*)&dibHeaderSize_, 4);
     file.write((char*)&width_, 4);
     file.write((char*)&height_, 4);
-    uint64_t colorPlanes = 1;
+    uint16_t colorPlanes = 1;
     file.write((char*)&colorPlanes, 2);
     uint16_t bitsPerPixel = 24; // 24-bit RGB
     file.write((char*)&bitsPerPixel, 2);
